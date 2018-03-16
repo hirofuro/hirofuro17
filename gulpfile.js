@@ -30,7 +30,7 @@ gulp.task('sass', () =>{
 		browsers: [
 			'last 2 versions'
 		],
-		grid: false,
+		grid: true,
 		cascade: false
 	}))
 	.pipe(gulp.dest(cmnpath + 'css'))

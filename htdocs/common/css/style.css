@@ -7,6 +7,7 @@ Author: Richard Clark - http://richclarkdesign.com
 Twitter: @rich_clark
 */
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-y: scroll;
   /* All browsers without overlaying scrollbars */
@@ -16,6 +17,7 @@ html {
 *,
 ::before,
 ::after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit; }
 
 ::before,
@@ -185,39 +187,85 @@ input[type=submit] {
   padding: 2em 1em;
   font-size: 1.2rem;
   text-align: center;
-  background-color: #9ED4E2;
+  background-color: #e29e9f;
+  word-break: break-all;
   margin: 5px; }
 
-.container {
+/*
+.container{
   max-width: 600px;
   margin: 0 auto;
+  
   display: -ms-grid;
   display: grid;
+  
   -ms-grid-columns: 100px 1fr 100px;
   grid-template-columns: 100px 1fr 100px;
   -ms-grid-rows: auto auto auto;
-  grid-template-rows: auto auto auto; }
+  grid-template-rows: auto auto auto;
+}
 
-.item_header {
-  grid-column: 1/4;
+.item_header{
   -ms-grid-column: 1;
   -ms-grid-row: 1;
-  -ms-grid-column-span: 3; }
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+}
 
-.item_footer {
-  grid-column: 1/4;
+.item_footer{
   -ms-grid-column: 1;
   -ms-grid-row: 3;
-  -ms-grid-column-span: 3; }
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+}
+
+.item_nav{
+  -ms-grid-column: 1;
+  -ms-grid-row: 2;
+}
+
+.item_main{
+  -ms-grid-column: 2;
+  -ms-grid-row: 2;
+}
+
+.item_sidebar{
+  -ms-grid-column: 3;
+  -ms-grid-row: 2;
+}
+*/
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr;
+  grid-template-columns: 100px 1fr;
+  -ms-grid-rows: (auto)[3];
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "header header" "nav    main" "footer footer"; }
+
+.item_header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header; }
 
 .item_nav {
+  -ms-grid-row: 2;
   -ms-grid-column: 1;
-  -ms-grid-row: 2; }
+  grid-area: nav; }
 
 .item_main {
+  -ms-grid-row: 2;
   -ms-grid-column: 2;
-  -ms-grid-row: 2; }
+  grid-area: main; }
 
 .item_sidebar {
-  -ms-grid-column: 3;
-  -ms-grid-row: 2; }
+  grid-area: sidebar; }
+
+.item_footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: footer; }
