@@ -7,7 +7,6 @@ Author: Richard Clark - http://richclarkdesign.com
 Twitter: @rich_clark
 */
 html {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-y: scroll;
   /* All browsers without overlaying scrollbars */
@@ -17,7 +16,6 @@ html {
 *,
 ::before,
 ::after {
-  -webkit-box-sizing: inherit;
   box-sizing: inherit; }
 
 ::before,
@@ -192,4 +190,34 @@ input[type=submit] {
 
 .container {
   max-width: 600px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr 100px;
+  grid-template-columns: 100px 1fr 100px;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr; }
+
+.item_header {
+  grid-column: 1/4;
+  -ms-grid-column: 1;
+  -ms-grid-row: 1;
+  -ms-grid-column-span: 3; }
+
+.item_footer {
+  grid-column: 1/4;
+  -ms-grid-column: 1;
+  -ms-grid-row: 3;
+  -ms-grid-column-span: 3; }
+
+.item_nav {
+  -ms-grid-column: 1;
+  -ms-grid-row: 2; }
+
+.item_main {
+  -ms-grid-column: 2;
+  -ms-grid-row: 2; }
+
+.item_sidebar {
+  -ms-grid-column: 3;
+  -ms-grid-row: 2; }
